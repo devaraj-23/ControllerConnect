@@ -23,6 +23,7 @@ This project demonstrates **mobile-to-embedded communication via BLE** and can b
 
 ## Project Structure
 
+```text
 ControllerConnect/
 │
 ├─ App.tsx                  # Main app entry point
