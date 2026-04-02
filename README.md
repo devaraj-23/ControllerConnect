@@ -1,97 +1,78 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# ControllerConnect
 
-# Getting Started
+**ControllerConnect** is a **React Native** mobile application that communicates with an **ESP32** microcontroller using **Bluetooth Low Energy (BLE)**.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Overview
 
-## Step 1: Start Metro
+Users can:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **Search for nearby BLE devices**
+- **Connect to ESP32**
+- **Send commands for controlling hardware**
+- **Receive feedback or status updates**
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+This project demonstrates **mobile-to-embedded communication via BLE** and can be used in **IoT projects, robotics, or home automation**.
 
-```sh
-# Using npm
+## Features
+
+- **BLE scanning and connection** (`SearchPage.tsx`)
+- **Control connected devices** (`ConnectedPage.tsx`)
+- **Real-time communication** with ESP32
+- **Extensible interface** for multiple devices
+- **Cross-platform support:** Android & iOS
+
+## Project Structure
+ControllerConnect/
+│
+├─ App.tsx # Main app entry point
+├─ ConnectedPage.tsx # Interface for controlling connected devices
+├─ SearchPage.tsx # Interface for scanning and connecting to BLE devices
+├─ tests/ # Test files
+├─ android/ # Android project files
+├─ ios/ # iOS project files
+├─ .eslintrc.js # ESLint configuration
+├─ .gitignore # Git ignore rules
+├─ .prettierrc.js # Prettier configuration
+├─ Gemfile # Ruby dependencies (for iOS)
+├─ README.md # Project documentation
+├─ app.json # App configuration
+├─ babel.config.js # Babel configuration
+├─ index.js # App entry for React Native
+├─ jest.config.js # Jest configuration for testing
+├─ metro.config.js # Metro bundler config
+├─ package.json # Project dependencies and scripts
+├─ package-lock.json # Lockfile for npm dependencies
+└─ tsconfig.json # TypeScript configuration
+
+
+## Installation & Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/devaraj-23/ControllerConnect.git
+cd ControllerConnect
+
+Install dependencies
+npm install
+Run the app
 npm start
+Use Expo Go for mobile testing or run via React Native CLI
+Ensure Bluetooth is enabled on your device
+How BLE Communication Works
+ESP32 advertises as a BLE peripheral
+Mobile app scans for devices (SearchPage.tsx)
+User selects ESP32 and connects (ConnectedPage.tsx)
+Mobile app writes data to BLE characteristics
+ESP32 executes commands and optionally sends responses back
 
-# OR using Yarn
-yarn start
-```
 
-## Step 2: Build and run your app
+Screenshots / Demo
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
 
-### Android
+<img width="632" height="1320" alt="image" src="https://github.com/user-attachments/assets/103b67a4-d8ba-47a8-b5cf-420be70bd6fc" />
 
-```sh
-# Using npm
-npm run android
+<img width="632" height="1333" alt="image" src="https://github.com/user-attachments/assets/23eeaaff-001c-431e-b16f-c0fa04926363" />
 
-# OR using Yarn
-yarn android
-```
+<img width="1114" height="408" alt="image" src="https://github.com/user-attachments/assets/bfcbdaec-4732-48d7-b1b8-16014eec2839" />
 
-### iOS
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
