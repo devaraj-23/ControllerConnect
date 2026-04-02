@@ -42,7 +42,7 @@ Mobile app writes data to BLE characteristics
 ESP32 executes commands and optionally sends responses back
 
 
-## Project Structure
+Project Structure
 
 ```text
 ControllerConnect/
