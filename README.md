@@ -66,13 +66,10 @@ Mobile app writes data to BLE characteristics
 ESP32 executes commands and optionally sends responses back
 
 
-Screenshots / Demo
+## Screenshots / Demo
 
-
-<img width="632" height="1320" alt="image" src="https://github.com/user-attachments/assets/103b67a4-d8ba-47a8-b5cf-420be70bd6fc" />
-
-<img width="632" height="1333" alt="image" src="https://github.com/user-attachments/assets/23eeaaff-001c-431e-b16f-c0fa04926363" />
-
-<img width="1114" height="408" alt="image" src="https://github.com/user-attachments/assets/bfcbdaec-4732-48d7-b1b8-16014eec2839" />
+![Search Page](./assets/search_page.png)
+![Connected Page](./assets/connected_page.png)
+![Another Screenshot](./assets/another_screenshot.png)
 
 
