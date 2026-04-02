@@ -52,7 +52,7 @@ ControllerConnect/
 1. **Clone the repository**
 ```bash
 git clone https://github.com/devaraj-23/ControllerConnect.git
-cd ControllerConnect
+cd ControllerConnect`
 
 Install dependencies
 npm install
