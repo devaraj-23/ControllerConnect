@@ -21,6 +21,27 @@ This project demonstrates **mobile-to-embedded communication via BLE** and can b
 - **Extensible interface** for multiple devices
 - **Cross-platform support:** Android & iOS
 
+## Installation & Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/devaraj-23/ControllerConnect.git
+cd ControllerConnect`
+
+Install dependencies
+npm install
+Run the app
+npm start
+Use Expo Go for mobile testing or run via React Native CLI
+Ensure Bluetooth is enabled on your device
+How BLE Communication Works
+ESP32 advertises as a BLE peripheral
+Mobile app scans for devices (SearchPage.tsx)
+User selects ESP32 and connects (ConnectedPage.tsx)
+Mobile app writes data to BLE characteristics
+ESP32 executes commands and optionally sends responses back
+
+
 ## Project Structure
 
 ```text
@@ -45,26 +66,5 @@ ControllerConnect/
 ├─ package.json             # Project dependencies and scripts
 ├─ package-lock.json        # Lockfile for npm dependencies
 └─ tsconfig.json            # TypeScript configuration
-
-
-## Installation & Setup
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/devaraj-23/ControllerConnect.git
-cd ControllerConnect`
-
-Install dependencies
-npm install
-Run the app
-npm start
-Use Expo Go for mobile testing or run via React Native CLI
-Ensure Bluetooth is enabled on your device
-How BLE Communication Works
-ESP32 advertises as a BLE peripheral
-Mobile app scans for devices (SearchPage.tsx)
-User selects ESP32 and connects (ConnectedPage.tsx)
-Mobile app writes data to BLE characteristics
-ESP32 executes commands and optionally sends responses back
 
 
