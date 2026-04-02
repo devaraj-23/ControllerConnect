@@ -46,7 +46,7 @@ ControllerConnect/
 ├─ package-lock.json        # Lockfile for npm dependencies
 └─ tsconfig.json            # TypeScript configuration
 
-text```
+
 ## Installation & Setup
 
 1. **Clone the repository**
