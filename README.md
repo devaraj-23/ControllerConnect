@@ -22,27 +22,28 @@ This project demonstrates **mobile-to-embedded communication via BLE** and can b
 - **Cross-platform support:** Android & iOS
 
 ## Project Structure
+
 ControllerConnect/
 │
-├─ App.tsx # Main app entry point
-├─ ConnectedPage.tsx # Interface for controlling connected devices
-├─ SearchPage.tsx # Interface for scanning and connecting to BLE devices
-├─ tests/ # Test files
-├─ android/ # Android project files
-├─ ios/ # iOS project files
-├─ .eslintrc.js # ESLint configuration
-├─ .gitignore # Git ignore rules
-├─ .prettierrc.js # Prettier configuration
-├─ Gemfile # Ruby dependencies (for iOS)
-├─ README.md # Project documentation
-├─ app.json # App configuration
-├─ babel.config.js # Babel configuration
-├─ index.js # App entry for React Native
-├─ jest.config.js # Jest configuration for testing
-├─ metro.config.js # Metro bundler config
-├─ package.json # Project dependencies and scripts
-├─ package-lock.json # Lockfile for npm dependencies
-└─ tsconfig.json # TypeScript configuration
+├─ App.tsx                  # Main app entry point
+├─ ConnectedPage.tsx        # Interface for controlling connected devices
+├─ SearchPage.tsx           # Interface for scanning and connecting to BLE devices
+├─ __tests__/               # Test files
+├─ android/                 # Android project files
+├─ ios/                     # iOS project files
+├─ .eslintrc.js             # ESLint configuration
+├─ .gitignore               # Git ignore rules
+├─ .prettierrc.js           # Prettier configuration
+├─ Gemfile                  # Ruby dependencies (for iOS)
+├─ README.md                # Project documentation
+├─ app.json                 # App configuration
+├─ babel.config.js          # Babel configuration
+├─ index.js                 # App entry for React Native
+├─ jest.config.js           # Jest configuration for testing
+├─ metro.config.js          # Metro bundler config
+├─ package.json             # Project dependencies and scripts
+├─ package-lock.json        # Lockfile for npm dependencies
+└─ tsconfig.json            # TypeScript configuration
 
 
 ## Installation & Setup
