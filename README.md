@@ -1,70 +1,80 @@
-# ControllerConnect
+📱 ControllerConnect
+ControllerConnect is a high-performance React Native mobile application designed to interface with ESP32 microcontrollers using Bluetooth Low Energy (BLE). This project serves as a robust foundation for IoT ecosystems, robotics, and smart home hardware control.
 
-**ControllerConnect** is a **React Native** mobile application that communicates with an **ESP32** microcontroller using **Bluetooth Low Energy (BLE)**.
+📌 Overview
+The application bridges the gap between mobile interfaces and embedded hardware. By leveraging the BLE stack, it provides a low-latency, energy-efficient way to transmit commands and receive real-time telemetry from an ESP32 peripheral.
 
-## Overview
+🎯 Features
+🔍 Intelligent Scanning: Real-time BLE device discovery via SearchPage.tsx.
 
-Users can:
+🔗 Seamless Connection: One-tap pairing with ESP32 peripherals.
 
-- **Search for nearby BLE devices**
-- **Connect to ESP32**
-- **Send commands for controlling hardware**
-- **Receive feedback or status updates**
+🎮 Command Console: Dedicated interface for hardware manipulation in ConnectedPage.tsx.
 
-This project demonstrates **mobile-to-embedded communication via BLE** and can be used in **IoT projects, robotics, or home automation**.
+📡 Bi-Directional Data: Support for Write/Notify operations (Send commands & receive status).
 
-## Features
+📱 Cross-Platform: Fully compatible with both Android and iOS.
 
-- **BLE scanning and connection** (`SearchPage.tsx`)
-- **Control connected devices** (`ConnectedPage.tsx`)
-- **Real-time communication** with ESP32
-- **Extensible interface** for multiple devices
-- **Cross-platform support:** Android & iOS
+🏗️ Scalable Architecture: Easily extensible to support multiple IoT devices.
 
-## Installation & Setup
+🛠️ Tech Stack
+Frontend: React Native (TypeScript)
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/devaraj-23/ControllerConnect.git
-cd ControllerConnect`
+State Management: React Hooks
 
-Install dependencies
-npm install
-Run the app
-npm start
-Use Expo Go for mobile testing or run via React Native CLI
-Ensure Bluetooth is enabled on your device
-How BLE Communication Works
-ESP32 advertises as a BLE peripheral
-Mobile app scans for devices (SearchPage.tsx)
-User selects ESP32 and connects (ConnectedPage.tsx)
-Mobile app writes data to BLE characteristics
-ESP32 executes commands and optionally sends responses back
+Communication: BLE (Bluetooth Low Energy)
 
+Embedded Target: ESP32 (C++/Arduino or ESP-IDF)
 
-Project Structure
+Styling: Styled Components / Flexbox
 
-```text
+⚙️ How BLE Communication Works
+Advertising: The ESP32 acts as a Peripheral, broadcasting its UUID.
+
+Discovery: The React Native app (Central) scans and filters for the ESP32 service UUID.
+
+GATT Connection: A secure connection is established to the Generic Attribute Profile (GATT).
+
+Data Exchange:
+
+Mobile → ESP32: Writing to specific characteristics to trigger hardware actions (e.g., toggling a GPIO).
+
+ESP32 → Mobile: Sending notifications back to the app (e.g., sensor data updates).
+
+📂 Project Structure
+Plaintext
 ControllerConnect/
-│
-├─ App.tsx                  # Main app entry point
-├─ ConnectedPage.tsx        # Interface for controlling connected devices
-├─ SearchPage.tsx           # Interface for scanning and connecting to BLE devices
-├─ __tests__/               # Test files
-├─ android/                 # Android project files
-├─ ios/                     # iOS project files
-├─ .eslintrc.js             # ESLint configuration
-├─ .gitignore               # Git ignore rules
-├─ .prettierrc.js           # Prettier configuration
-├─ Gemfile                  # Ruby dependencies (for iOS)
-├─ README.md                # Project documentation
-├─ app.json                 # App configuration
-├─ babel.config.js          # Babel configuration
-├─ index.js                 # App entry for React Native
-├─ jest.config.js           # Jest configuration for testing
-├─ metro.config.js          # Metro bundler config
-├─ package.json             # Project dependencies and scripts
-├─ package-lock.json        # Lockfile for npm dependencies
-└─ tsconfig.json            # TypeScript configuration
+├── App.tsx             # Root Navigation & Entry Point
+├── SearchPage.tsx      # BLE Device Discovery Logic
+├── ConnectedPage.tsx   # Dashboard & Command Controls
+├── android/            # Native Android Build Files
+├── ios/                # Native iOS Build Files (CocoaPods)
+├── __tests__/          # Unit & Integration Tests
+└── tsconfig.json       # TypeScript Configuration
+🚀 Installation & Setup
+1. Clone & Install
+Bash
+git clone https://github.com/devaraj-23/ControllerConnect.git
+cd ControllerConnect
+npm install
+2. iOS Setup (macOS only)
+Bash
+cd ios
+pod install
+cd ..
+3. Run the Application
+Bash
+# To start the Metro Bundler
+npm start
 
+# To run on Android
+npm run android
 
+# To run on iOS
+npm run ios
+Note: BLE functionality requires a physical device. Emulators/Simulators typically do not support Bluetooth hardware.
+
+👨‍💻 Author
+Devaraj M
+B.E. Instrumentation and Control Engineering
+PSG College of Technology
