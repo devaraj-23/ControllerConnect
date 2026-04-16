@@ -42,7 +42,7 @@ Mobile app writes data to BLE characteristics
 ESP32 executes commands and optionally sends responses back
 
 
-Project Structure
+## Project Structure
 
 ```text
 ControllerConnect/
@@ -66,4 +66,3 @@ ControllerConnect/
 ├─ package.json             # Project dependencies and scripts
 ├─ package-lock.json        # Lockfile for npm dependencies
 └─ tsconfig.json            # TypeScript configuration
-for this project also make perfect readme
