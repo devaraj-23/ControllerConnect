@@ -1,77 +1,84 @@
-# 📱 ControllerConnect
+```markdown
+# 🌐 Offline Voice Assistant & ControllerConnect Ecosystem
 
-**ControllerConnect** is a high-performance **React Native** mobile application designed to interface with **ESP32** microcontrollers using **Bluetooth Low Energy (BLE)**. This project serves as a robust foundation for IoT ecosystems, robotics, and smart home hardware control.
-
----
-
-### 📌 Overview
-The application bridges the gap between mobile interfaces and embedded hardware. By leveraging the BLE stack, it provides a low-latency, energy-efficient way to transmit commands and receive real-time telemetry from an ESP32 peripheral.
+This repository contains a full-stack IoT solution: a **React Native Mobile App** for BLE control and an **Offline Voice-Controlled ESP32 System**. Together, they demonstrate seamless hardware-software integration using modern communication protocols.
 
 ---
 
-### 🎯 Features
-* **🔍 Intelligent Scanning:** Real-time BLE device discovery via `SearchPage.tsx`.
-* **🔗 Seamless Connection:** One-tap pairing with ESP32 peripherals.
-* **🎮 Command Console:** Dedicated interface for hardware manipulation in `ConnectedPage.tsx`.
-* **📡 Bi-Directional Data:** Support for Write/Notify operations (Send commands & receive status).
-* **📱 Cross-Platform:** Fully compatible with both **Android** and **iOS**.
-* **🏗️ Scalable Architecture:** Easily extensible to support multiple IoT devices.
+### 📂 Full Project Structure
 
----
-
-### 🛠️ Tech Stack
-| Category | Technology |
-| :--- | :--- |
-| **Frontend** | React Native (TypeScript) |
-| **Communication** | Bluetooth Low Energy (BLE) |
-| **Environment** | Expo / React Native CLI |
-| **Embedded Hardware** | ESP32 (C++/Arduino) |
-
----
-
-### ⚙️ How BLE Communication Works
-1.  **Advertising:** The ESP32 acts as a **Peripheral**, broadcasting its UUID.
-2.  **Discovery:** The React Native app (Central) scans and filters for the ESP32 service UUID.
-3.  **GATT Connection:** A secure connection is established to the Generic Attribute Profile (GATT).
-4.  **Data Exchange:** * **Mobile → ESP32:** Writing to specific characteristics to trigger hardware actions (e.g., toggling a GPIO).
-    * **ESP32 → Mobile:** Sending notifications back to the app (e.g., sensor data updates).
-
----
-
-### 📂 Project Structure
 ```text
-ControllerConnect/
-├── App.tsx             # Root Navigation & Entry Point
-├── SearchPage.tsx      # BLE Device Discovery Logic
-├── ConnectedPage.tsx   # Dashboard & Command Controls
-├── android/            # Native Android Build Files
-├── ios/                # Native iOS Build Files
-├── __tests__/          # Unit & Integration Tests
-└── tsconfig.json       # TypeScript Configuration
+.
+├── ControllerConnect/          # Mobile Application (React Native)
+│   ├── App.tsx                 # Main entry point
+│   ├── SearchPage.tsx          # BLE Discovery & Pairing
+│   ├── ConnectedPage.tsx       # Hardware Control UI
+│   ├── ios/                    # iOS Native Code
+│   ├── android/                # Android Native Code
+│   └── tsconfig.json           # TypeScript Config
+│
+├── Offline-Voice-Assistant/    # Embedded Firmware (C/C++)
+│   ├── transmitter_code/       # ESP32 (ESP-IDF + ESP-Skainet)
+│   ├── receiver_code/          # ESP8266 (Arduino/ESP-NOW)
+│   └── docs/                   # Schematics & Circuit Diagrams
+│
+├── shared/                     # (Optional) Shared assets or protocols
+└── README.md                   # Main Project Documentation
+```
 
+---
 
-🚀 Installation & Setup
-1. Clone & Install
-Bash
-git clone [https://github.com/devaraj-23/ControllerConnect.git](https://github.com/devaraj-23/ControllerConnect.git)
+### 🛠️ Technical Specifications
+
+| System | Component | Protocols / Tools |
+| :--- | :--- | :--- |
+| **Mobile App** | ControllerConnect | React Native, BLE, TypeScript |
+| **Voice Processing** | ESP32 (Transmitter) | ESP-Skainet, I2S, ESP-IDF |
+| **Peripheral Node** | ESP8266 (Receiver) | ESP-NOW, Arduino IDE |
+| **Hardware** | Sensors & Actuators | INMP441 Mic, Relays, OLED I2C |
+
+---
+
+### ⚡ Key Features
+* **Dual Control:** Control devices via **Offline Voice Commands** or the **BLE Mobile App**.
+* **Zero Latency:** Uses **ESP-NOW** for lightning-fast transmitter-to-receiver communication.
+* **Privacy First:** No cloud involvement; all voice processing and Bluetooth data stay local.
+* **Cross-Platform:** Mobile app works on both **Android** and **iOS**.
+
+---
+
+### 🚀 Getting Started
+
+#### 1. Setup the Mobile App
+```bash
 cd ControllerConnect
 npm install
-2. iOS Setup (macOS only)
-Bash
-cd ios
-pod install
-cd ..
-3. Run the Application
-Bash
-# To start the Metro Bundler
-npm start
+# For iOS: cd ios && pod install && cd ..
+npm run android # or npm run ios
+```
 
-# To run on Android
-npm run android
+#### 2. Flash the Firmware
+* **ESP32:** Open `transmitter_code` in VS Code with the **ESP-IDF** extension. Build and flash.
+* **ESP8266:** Open `receiver_code` in the **Arduino IDE**. Install ESP8266 boards and flash.
 
-# To run on iOS
-npm run ios
-⚠️ Note: BLE functionality requires a physical device. Emulators/Simulators typically do not support Bluetooth hardware.
+---
 
-👨‍💻 Author
-Devaraj M B.E. Instrumentation and Control Engineering PSG College of Technology
+### ⚙️ System Workflow
+1. **User Action:** The user speaks a command ("Light ON") OR toggles a button in **ControllerConnect**.
+2. **Processing:** - **Voice:** ESP32 captures audio via **INMP441** and processes it locally.
+   - **App:** React Native sends a **BLE** packet to the ESP32.
+3. **Execution:** The ESP32 sends a signal via **ESP-NOW** to the ESP8266, which triggers the **Relay**.
+4. **Feedback:** Status is updated on the **OLED** display and the mobile app interface.
+
+---
+
+### 👨‍💻 Author
+**Devaraj M**
+*B.E. Instrumentation and Control Engineering*
+*PSG College of Technology*
+
+---
+
+### 📜 License
+This project is for academic and learning purposes. Feel free to fork and build upon it!
+```
