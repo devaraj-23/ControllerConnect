@@ -26,7 +26,7 @@ This project demonstrates **mobile-to-embedded communication via BLE** and can b
 1. **Clone the repository**
 ```bash
 git clone https://github.com/devaraj-23/ControllerConnect.git
-cd ControllerConnect`
+cd ControllerConnect
 
 Install dependencies
 npm install
@@ -40,7 +40,7 @@ Mobile app scans for devices (SearchPage.tsx)
 User selects ESP32 and connects (ConnectedPage.tsx)
 Mobile app writes data to BLE characteristics
 ESP32 executes commands and optionally sends responses back
-
+```
 
 ## Project Structure
 
@@ -66,3 +66,5 @@ ControllerConnect/
 ├─ package.json             # Project dependencies and scripts
 ├─ package-lock.json        # Lockfile for npm dependencies
 └─ tsconfig.json            # TypeScript configuration
+
+```
